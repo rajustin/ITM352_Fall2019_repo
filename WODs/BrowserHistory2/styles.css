@@ -1,0 +1,37 @@
+/*header font */
+h1,h2{
+
+    font-family: 'Oswald', sans-serif; 
+
+}
+/* rest font */
+li,p{
+    font-family: 'Open Sans', sans-serif; 
+}
+
+/*font color for everything*/
+html{
+    color: darkblue;
+}
+
+/* margin for */
+html{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/*text width*/
+html{
+    width:950px;
+}
+
+html{
+    background-color: ivory;
+}
+
+img{
+   float: left;
+  }
+
