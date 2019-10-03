@@ -35,3 +35,10 @@ img{
    float: left;
   }
 
+section{
+    
+    
+    -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
+    columns: 100px 3;
+      
+}
