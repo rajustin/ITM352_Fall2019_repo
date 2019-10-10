@@ -1,0 +1,18 @@
+'3/13/1999'
+
+step1 = 99;
+
+step2 = parseInt(step1 / 4);
+
+step3 = step2 + step1;
+
+step4 = 3;
+
+step6= step4 + step3;
+
+step7 = step6 + 13;
+
+step8 = 139
+
+step9 = (step8)%7
+6
