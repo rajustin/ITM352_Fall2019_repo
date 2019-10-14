@@ -4,8 +4,24 @@ h1,h2{
     font-family: 'Oswald', sans-serif; 
 
 }
+
+/*ul List style*/
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/*li format style */
+li{
+    display: inline-table;
+}
+
+#navigationBar a{
+    margin-left: 45px;
+    margin-right: 45px;
+}
 /* rest font */
-li,p{
+body{
     font-family: 'Open Sans', sans-serif; 
 }
 
@@ -35,10 +51,22 @@ img{
    float: left;
   }
 
-section{
-    
-    
-    -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
-    columns: 100px 3;
-      
+.left{
+    float:left;
+    width:300px;
+    padding: 1em
 }
+
+.right{
+    float: right;
+    width: 300px;
+    padding: 1em
+}
+
+.center{
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 1em
+}
+
+
