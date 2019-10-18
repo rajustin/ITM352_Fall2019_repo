@@ -41,13 +41,16 @@
      var extendedprice5 = quantity5 * price5;
 
      //compute subtotal:
- 
+  
     var subtotal = extendedprice1 + extendedprice2 + extendedprice3 + extendedprice4 + extendedprice5;
   
     //calculate tax:
     var tax_rate = .0575;
     var tax = tax_rate * subtotal;
     
+   //calculate shipping
+   if(subtotal )
+
     //calculate grand total
     var total = subtotal + tax;
 </script>
@@ -127,14 +130,22 @@
                   <tr>
                     <td colspan="4" width="100%">&nbsp;</td>
                   </tr>
+
                   <tr>
                     <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
                     <td width="54%">$<script>document.write(subtotal);</script></td>
                   </tr>
+
                   <tr>
-                    <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 5.75%</span></td>
+                    <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ <script>document.write(100*tax_rate);</script>%</span></td>
                     <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
                   </tr>
+
+                  <tr>
+                      <td style="text-align: center;" colspan="3" width="67%">Shipping</span></td>
+                      <td width="54%">$<script>document.write(shipping.toFixed(2));</script></td>
+                    </tr>
+
                   <tr>
                     <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
                     <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
