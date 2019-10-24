@@ -1,4 +1,3 @@
-
 attributes  =  "justin;20;20.5;-19.5" ;
 theSeparator = ';';
 parts = attributes.split(theSeparator);
@@ -14,14 +13,13 @@ parts = attributes.split(theSeparator);
         
     
     function printIt(item, index){
-        console.log( `${item} NotNegativeNumber ${NotNegativeNumber(item,true)}`);
+        console.log( `${item} isNonNegInt ${isNonNegInt(item,true)}`);
 }
 //}
 
 console.log(parts.join(theSeparator));
 
-// Runs a loop that notifies you if the string you put is positive integer or not
-function NotNegativeNumber(q, returnErrors = false) {
+function isNonNegInt(q, returnErrors = false) {
     errors = []; // assume no errors at first
     if(Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
     if(q < 0) errors.push('Negative value!'); // Check if it is non-negative
@@ -31,3 +29,4 @@ function NotNegativeNumber(q, returnErrors = false) {
 
 }
 
+Number(-3);
