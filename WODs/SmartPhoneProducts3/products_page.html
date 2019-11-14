@@ -1,0 +1,54 @@
+<script>
+    products = [];
+
+    var product1 = { image: "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg", brand: "HTC", price: "$" + 40.00 };
+    var product2 = { image: "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg", brand: "Apple", price: "$" + 75.00 };
+    var product3 = { image: "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg", brand: "Nokia", price: "$" + 35.00 };
+    var product4 = { image: "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg", brand: "Samsung", price: "$" + 45.00 };
+    var product5 = { image: "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg", brand: "Blackberry", price: "$" + 10.00 };
+    var products = [product1, product2, product3, product4, product5];
+
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<main>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Used Smartphone Store</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="product-styles.css">
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Justin's used smart phone store</h1>
+        </header>
+        <div>
+
+            <script>
+                for (i = 0; i <= products.length; i++) {
+                    document.write(`
+    <section class="item">
+        <h2>${products[i].brand}</h2>
+        <p>$${products[i].price}</p> 
+        <img src= ${products[i].image} >
+    </section>
+   
+    `)
+                }
+            </script>
+
+
+
+        </div>
+    </body>
+
+    <h1>Your One Stop Phone Shop</h1>
+</main>
+
+</html>

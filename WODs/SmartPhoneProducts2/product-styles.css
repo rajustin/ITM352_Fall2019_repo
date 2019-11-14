@@ -1,11 +1,12 @@
 
-/*General*/
-body{
+/*General margin for the whole border*/
+html{
     width: 800px; 
-    margin: 0 auto;
-    
+    margin: auto;
+    background-color: #1C6EA4;  
 }
 
+/*Image size and borders*/
 img{
 
     width: 200px;
@@ -16,18 +17,22 @@ img{
     border-radius: 30px;
 }
 
-h1,h2{
 
+/*h1 alignment*/
+h1,h2{
+    text-align: center;
+}
+
+/*h1&h2 font styling*/
+h1,h2{
+    border: 5px solid rgb(255, 136, 0);
     font-family:fantasy;
     color: #bc2e1e;
     background: #edde9c;
-    text-align:center
-
-color #FFF;
-
-text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;
+    text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;
 }
 
+/*content alignment*/
 div{
     display: flex;
     flex-flow: wrap;
@@ -35,22 +40,17 @@ div{
 
 }
 
-
+/*background image alignment*/
 div{
 
-    background-image:
-    url("./images/phone_globe.jpg" );
-    background-repeat:no-repeat;
-    
+    background-image:url("./images/phone_globe.jpg" );
+    background-repeat: no-repeat;
     
 }
 
-div{
-    border: 5px solid black;
-    display: flex;
 
-}
 
+/*price lable design*/
 p{
     text-align:center;
   color: #FFF;
@@ -59,16 +59,13 @@ text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18p
     color: #dae4f1;  
 }
 
-body{
+
+/*purple border design*/
+div{
     text-align:center;
-    border: 30px solid #451a90;
+    border: 20px solid #451a90;
     display: flex;
     -webkit-border-radius: 30px;
     border-radius: 30px;
     
-   
 } 
-body{
-    background-color: #1C6EA4;  
-
-   }
