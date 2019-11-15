@@ -1,0 +1,70 @@
+
+/*General margin for the whole border*/
+html{
+    width: 800px; 
+    margin: auto;
+    background-color: #1C6EA4;  
+}
+
+/*Image size and borders*/
+img{
+
+    width: 200px;
+    height:200px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+}
+
+
+/*h1 alignment*/
+h1,h2{
+    text-align: center;
+}
+
+/*h1&h2 font styling*/
+h1,h2{
+    border: 5px solid rgb(255, 136, 0);
+    font-family:fantasy;
+    color: #bc2e1e;
+    background: #edde9c;
+    text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;
+}
+
+/*content alignment*/
+div{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+
+}
+
+/*background image alignment*/
+div{
+
+    background-image:url("./images/phone_globe.jpg" );
+    background-repeat: no-repeat;
+    
+}
+
+
+/*price lable design*/
+p{
+    text-align:center;
+  color: #FFF;
+background-color: #333;
+text-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;
+    color: #dae4f1;  
+}
+
+
+/*purple border design*/
+div{
+    text-align:center;
+    border: 20px solid #451a90;
+    display: flex;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    
+} 
