@@ -54,8 +54,8 @@
             <tr>
               <td width="43%">${products[i].product}</td>
               <td align="center" width="11%">${quantities[i]}</td>
-              <td width="13%">${products[i].price}</td>
-              <td width="54%">${extended_price[i]}</td>
+              <td width="13%">\$${products[i].price}</td>
+              <td width="54%">\$${extended_price}</td>
             </tr>
             `);
                 }
@@ -78,6 +78,7 @@
               // Compute grand total
               var total = subtotal + tax + shipping;
                  </script>
+                
                   <tr>
                     <td colspan="4" width="100%">&nbsp;</td>
                   </tr>
