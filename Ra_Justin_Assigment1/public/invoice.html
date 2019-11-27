@@ -49,7 +49,7 @@
                   if (quantities[i] > 0) {
                   // product row
                  extended_price = quantities[i] * products[i].price;
-                 subtotal = extended_price;
+                 subtotal =  extended_price + subtotal;
                   document.write(`
             <tr>
               <td width="43%">${products[i].product}</td>
