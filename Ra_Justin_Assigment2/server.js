@@ -1,7 +1,6 @@
 //Creating a server via express//
 var data = require('./Public/product_data.js'); //get the data from product_data.js
 var products = data.products;
-
 var express = require('express'); //Server requires express to run//
 var app = express(); //Run the express function and start express//
 var myParser = require("body-parser");
