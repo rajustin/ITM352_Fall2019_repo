@@ -34,13 +34,13 @@ function isNonNegInt(q, return_errors = false) {
                     }
                 }
             }
-            // Now respond to errors or redirect to invoice if all is ok
+            // Now respond to errors or redirect to login if all is ok
             if(has_errors) {
                 alert("Please enter only valid quantities!");
             } else if(total_qty == 0) { // no quantity selections, just give a general alert
                 alert("Please select some quantities!");
             } else { // all good to go!
-                window.location = `./Invoice.html${document.location.search}`; //Redirects itself
+                window.location = `./login.html${document.location.search}`; //Redirects itself
                 window.stop;
             }
         }
@@ -65,7 +65,7 @@ function isNonNegInt(q, return_errors = false) {
     }
 </style>
 <body>
-        <form name="product_form" action="" method="GET">
+        <form name="product_form" action="login.html" method="GET">
     <header>
         <h1>Dragon Ball Collection</h1>
         <link href="products_style.css" rel="stylesheet">

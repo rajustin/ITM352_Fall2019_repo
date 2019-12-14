@@ -1,12 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-   <script>
+
+
+
+
+function startGame() {
+    startButton.destroy();
+    ball.body.velocity.set(150, -150);
+    playing = true;
+}
 
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -218,7 +218,7 @@ function update(time = 0) {
 }
 
 function updateScore() {
-    document.getElementById('score').innerText = player.score;
+    document.getElementById('score').innerText= player.score;
 }
 
 document.addEventListener('keydown', event => {
@@ -257,9 +257,6 @@ const player = {
 playerReset();
 updateScore();
 update();
-</script> 
-</body>
-</html>
 
-
+    
 

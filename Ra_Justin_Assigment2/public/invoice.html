@@ -3,24 +3,27 @@
 
 <script>
   //referenced from assignment 1 examples
-        let params = (new URL(document.location)).searchParams;
-        var quantities = []; 
-        console.log(quantities);
-        // processing the invoice to create the form from the data entered
-        if (params.has('submitPurchase')) {
-          for (i = 0; i < products.length; i++) {
-            if (params.has(`quantity${i}`)) {
-              a_qty = params.get(`quantity${i}`);
-              quantities[i] = a_qty;
-            }
-          }
-        } else {
-          document.write('Please enter a valid quantity!');
-        }
-
-        
-       
-       
+  let params = (new URL(document.location)).searchParams;
+  // processing the invoice to create the form from the data entered
+  if (params.has('submitPurchase')) {
+  }
+  else {
+    alert('Please Log In first');
+    window.location = 'login';
+    window.stop();
+  }
+  var quantities = [];
+  if (params.has('submitPurchase')) {
+    for (i = 0; i < products.length; i++) {
+      if (params.has(`quantity${i}`)) {
+        a_qty = params.get(`quantity${i}`);
+        quantities[i] = a_qty;
+      }
+    }
+  } else {
+    document.write('Please enter a valid quantity!');
+  }
+  console.log(quantities);
    
       </script>  
 
