@@ -1,8 +1,7 @@
 <html>
 <head>
-    <title>Tetris</title>
-    <style>
-      body {
+<style>
+     body {
         background: #202028;
         display: flex;
         color: #fff;
@@ -10,16 +9,25 @@
         font-size: 2em;
         text-align: center;
       }
+      html {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-position: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
       .player {
             flex: 1 1 auto;
         }
 
       canvas {
-        border: solid .2em #fff;
+    
         height: 90vh;
+       
       }
-      #startBtn {
+ #startBtn {
         border: none;
         background: none;
         position: absolute;
@@ -35,38 +43,22 @@
         display: inline-block;
         position: relative;
       }   
-    </style>
+</style>
+    <body>
+            <div id="container">
+                    <button type="button" id="startBtn" onclick="">
+                            <a href="./homepage.html"> <img src="https://1.bp.blogspot.com/-fVAKH-3TLuo/W5onDDHje0I/AAAAAAAAB4I/q2ooE6GuzQkS80dtw1JILXjFWdfQ3IKkwCLcBGAs/s1600/breaoutplay.png"></a>
+                    </button>
+                    <canvas id="tetris" width="600" height="550"></canvas>
+                  </div>
+                 <a href="tetris.html"></a>
+            
+              <script>
+            
+            var startBtn = document.getElementById('startBtn');
+            
+              </script>
+    </body>
 </head>
-<body>
-
-    <div id="container">
-        <button type="button" id="startBtn" onclick="draw()"><img src="https://1.bp.blogspot.com/-fVAKH-3TLuo/W5onDDHje0I/AAAAAAAAB4I/q2ooE6GuzQkS80dtw1JILXjFWdfQ3IKkwCLcBGAs/s1600/breaoutplay.png">
-        </button>
-        <canvas id="tetris" width="600" height="550"></canvas>
-      </div>
-      <script src="tetris.html"></script>
-
-  <script>
-
-var startBtn = document.getElementById('startBtn');
-
-  </script>
-    <div class="player">
-        <div class="score"></div>
-        <canvas class="tetris" width="240" height="400"></canvas>
-    </div>
-
-    <div class="player">
-        <div class="score"></div>
-        <canvas class="tetris" width="240" height="400"></canvas>
-    </div>
-
-    <script src="arena.js"></script>
-    <script src="player.js"></script>
-    <script src="tetris.js"></script>
-    <script src="main.js"></script>
-
-
-</body>
 
 </html>
