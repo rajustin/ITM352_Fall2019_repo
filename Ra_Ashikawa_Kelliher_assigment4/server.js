@@ -51,6 +51,7 @@ body{
 
 
 </style>
+
 <div id= login>
     <h1>Tetris Login</h1> 
     <p>To play you must be a member<br> Login or Register as Player 1</p> <!--Login for player 1-->
@@ -74,6 +75,7 @@ body{
     onclick="window.location='./public/playbutton.html' + document.location.search;">
   </div>
 </body>
+
     `;
     response.send(str);
 });

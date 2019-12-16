@@ -4,9 +4,27 @@
 <style>
 html{
     text-align: center;
-    background-image: url("./images/Tetris_Background.jpg"); /*Background Image*/
-    font-size: 15px;
-}    
+    background-image:url("./images/Tetris_Background.jpg"); /*Background Image*/
+    
+}
+
+body{
+    height:50%;
+    display:table; 
+    width:50%;
+    
+}
+
+
+
+#signup{
+  
+    
+    vertical-align:middle;
+    background-color: beige;	
+    
+	
+}
 </style>
     <script>
         let params = (new URL(document.location)).searchParams;
@@ -26,8 +44,9 @@ html{
 </head>
 
 <body>
-    <div>
+    <div id="signup">
         <form method="POST" action="" name="Register">
+            <h1>Please fill out the registration form!</h1>
             <input type="text" name="fullname" size="40" pattern="[a-zA-Z]+[ ]+[a-zA-Z]+"
                 placeholder="Enter First & Last Name"><br />
             <input type="text" name="username" size="40" pattern=".[a-z0-9]{3,10}" required
