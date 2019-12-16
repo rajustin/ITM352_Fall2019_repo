@@ -17,7 +17,7 @@ body{
 
 
 
-#content{
+#login{
   
  
     vertical-align:middle;
@@ -46,7 +46,7 @@ body{
 
 
 <body>
-    <div id= content>
+    <div id= login>
     <h1>Tetris Login</h1> 
     <p>To play you must be a member<br> Login or Register as Player 1</p> <!--Login for player 1-->
  
@@ -54,23 +54,15 @@ body{
         <div class="container">
             <input type="text" name="username" id="username" size="40" placeholder="Enter Username" required><br />
             <input type="password" name="password" size="40" placeholder="Enter Password" onkeyup="" required><br />
-            <input type="submit" value="Login" name="index"><br />
+            <input type="submit" value="Login" name="login"><br />
         </div>
     </form>
     <script>
-        index.action = "/index" + document.location.search;
+        login.action = "/login" + document.location.search;
     </script>
-    <p>Login or Register as Player 2</p> <!--Login for player 2-->
- 
-    <form name="login for player 2" method="POST">
-        <div class="container">
-            <input type="text" name="username" id="username" size="40" placeholder="Enter Username" required><br />
-            <input type="password" name="password" size="40" placeholder="Enter Password" onkeyup="" required><br />
-            <input type="submit" value="Login" name="index"><br />
-        </div>
-    </form>
+    
     <script>
-        index.action = "/index" + document.location.search;
+        login.action = "/login" + document.location.search;
     </script>
     <h2>Register Here!</h2> <!--If not login information user will go to registration page-->  
     <input type="button" name="newuser" value="New User" 
@@ -78,7 +70,7 @@ body{
 
    <h2>Play as a Guest</h2> <!--Allows user to go straight to the game without login-->
     <input type="button" name="Guest" value="Play as Guest"
-    onclick="window.location='./homepage.html' + document.location.search;">
+    onclick="window.location='./playbutton.html' + document.location.search;">
 
     </div> 
 
