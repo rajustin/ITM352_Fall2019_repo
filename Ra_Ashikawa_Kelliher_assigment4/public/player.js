@@ -3,7 +3,7 @@ class Player
     constructor(tetris)
     {
         this.DROP_SLOW = 1000;
-        this.DROP_FAST = 50;
+        this.DROP_FAST = 0;
 
         this.tetris = tetris;
         this.arena = tetris.arena;
@@ -47,7 +47,7 @@ class Player
         this.pos.x = (this.arena.matrix[0].length / 2 | 0) -
                      (this.matrix[0].length / 2 | 0);
         if (this.arena.collide(this)) {
-            this.arena.clear();
+            this.arena.gameover();
             this.score = 0;
            
         }

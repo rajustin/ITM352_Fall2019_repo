@@ -1,6 +1,7 @@
 
 
 class Arena
+ 
 {
     constructor(w, h)
     {
@@ -11,10 +12,14 @@ class Arena
         this.matrix = matrix;
     }
 
-    clear()
+   /* gameover()
     {
-        this.matrix.forEach(row => row.fill(0));
-    }
+        this.matrix.forEach(row => alert(`Game Over the winner is ${this.winner} `));
+       
+    }*/
+
+   
+   
 
     collide(player)
     {
