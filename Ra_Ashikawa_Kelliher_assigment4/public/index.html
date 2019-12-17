@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <script src="./server.js"></script>
+ 
         
 <style>
 html{
@@ -10,15 +10,11 @@ html{
     background-image:url("./images/Tetris_Background.jpg"); /*Background Image*/
     
 }
-
 body{
     height:50%;
     display:table; 
     width:50%;
 }
-
-
-
 #login{
   
  
@@ -27,8 +23,6 @@ body{
     
 	
 }
-
-
 </style>
     <script>
         let params = (new URL(document.location)).searchParams;
@@ -52,7 +46,7 @@ body{
     <h1>Tetris Login</h1> 
     <p>To play you must be a member<br> Login or Register as Player 1</p> <!--Login for player 1-->
  
-    <form name="login for player 1" method="POST">
+    <form name="login for player 1" method="POST" action="./logUserin">
         <div class="container">
             <input type="text" name="username" id="username" size="40" placeholder="Enter Username" required><br />
             <input type="password" name="password" size="40" placeholder="Enter Password" onkeyup="" required><br />

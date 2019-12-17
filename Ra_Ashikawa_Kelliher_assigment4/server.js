@@ -28,7 +28,7 @@ app.get("/login", function (request, response) {
     <style>
 html{
     text-align: center;
-    background-image:url("./public/images/Tetris_Background.jpg"); /*Background Image*/
+    background-image:url("images/Tetris_Background.jpg"); /*Background Image*/
     
 }
 
@@ -68,11 +68,11 @@ body{
     
     <h2>Register Here!</h2> <!--If not login information user will go to registration page-->  
     <input type="button" name="newuser" value="New User" 
-        onclick="window.location='./public/register.html' + document.location.search;">
+        onclick="window.location='register.html' + document.location.search;">
 
    <h2>Play as a Guest Without Login!</h2> <!--Allows user to go straight to the game without login-->
     <input type="button" name="Guest" value="Play as Guest"
-    onclick="window.location='./public/playbutton.html' + document.location.search;">
+    onclick="window.location='playbutton.html' + document.location.search;">
   </div>
 </body>
 
@@ -80,7 +80,7 @@ body{
     response.send(str);
 });
 
-app.post("/login", function (request, response) {
+app.post("/logUserin", function (request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
     console.log(request.body);
     //Diagnostic
@@ -88,10 +88,10 @@ app.post("/login", function (request, response) {
     if (typeof users_reg_data[the_username] != 'undefined') {
       //Asking object if it has matching username, if it doesnt itll be undefined.
       if (users_reg_data[the_username].password == request.body.password) {
-        response.redirect('./public/playbutton.html');
+        response.redirect('playbutton.html');
         //Redirect them to play button here if they logged in correctly
       } else {
-        response.redirect('./server');
+        response.redirect('server.js');
       }
      
     }
@@ -99,7 +99,7 @@ app.post("/login", function (request, response) {
 
 
 
-app.get("/register", function (request, response) {
+app.get("/registerUser", function (request, response) {
     // Give a simple register form
     str = `
     <body>
@@ -119,7 +119,7 @@ app.get("/register", function (request, response) {
             <input type="submit" value="Register" id="submit">
         </form>
         <script>
-            Register.action = "./register.html" + document.location.search;
+            Register.action = "/register" + document.location.search;
         </script>
     </div>
 </body>
@@ -149,7 +149,7 @@ app.post("/register", function (request, response) {
       users_reg_data[username].password = request.body.password;
       users_reg_data[username].email = request.body.email;
   
-      fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+      fs.writeFileSync(user_data_filename, JSON.stringify(users_reg_data));
   
       response.redirect("/login");
     } else {
@@ -158,5 +158,5 @@ app.post("/register", function (request, response) {
   
   });
 
-app.use(express.static('.'));
+app.use(express.static('./public'));
 app.listen(8080, () => console.log(`listening on port 8080`));

@@ -17,24 +17,22 @@
     overflow: hidden;
   }
 
-  #Controls {
-    height: 100vh;
+ section {
+   
+    position: relative;
     font-family: 'Courier New', Courier, monospace;
   }
    
 
 
  #startBtn {
-        border: none;
+        border: 1px solid white;
         background: none;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        z-index: 1;
-        transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%);
-        -moz-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
+        position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
       }          
       #container {
         display: inline-block;
@@ -51,7 +49,7 @@
                   <canvas id="tetris" width="600" height="550"></canvas>
                  <a href="tetris.html"></a>
                   </div>
-                  <section id="Controls" align="center">
+                  <section>
                     <b>
                     <h1>Controls are as followed</h1>
                     
