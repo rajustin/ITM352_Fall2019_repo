@@ -2,7 +2,7 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
-var qs = require('querystring');
+var querystring = require('querystring');
 
 app.use(myParser.urlencoded({ extended: true }));
 var filename = 'user_data.json';
@@ -99,64 +99,86 @@ app.post("/logUserin", function (request, response) {
 
 
 
-app.get("/registerUser", function (request, response) {
-    // Give a simple register form
-    str = `
-    <body>
-    <div>
-        <form method="POST" action="" name="Register">
-            <input type="text" name="fullname" size="40" pattern="[a-zA-Z]+[ ]+[a-zA-Z]+"
-                placeholder="Enter First & Last Name"><br />
-            <input type="text" name="username" size="40" pattern=".[a-z0-9]{3,10}" required
-                title="Minimum 4 Characters, Maximum 10 Characters, Numbers/Letters Only"
-                placeholder="Enter Username"><br />
-            <input type="email" name="email" size="40" placeholder="Enter Email"
-                pattern="[a-z0-9._]+@[a-z0-9]+\.[a-z]{3,}$" required title="Please enter valid email."><br />
-            <input type="password" id="password" name="password" size="40" pattern=".{8,}" required
-                title="8 Characters Minimum" placeholder="Enter Password"><br />
-            <input type="password" id="repeat_password" name="repeat_password" size="40" pattern=".{8,}" required
-                title="8 Characters Minimum" placeholder="Repeat Password"><br />
-            <input type="submit" value="Register" id="submit">
-        </form>
-        <script>
-            Register.action = "/register" + document.location.search;
-        </script>
-    </div>
-</body>
-    `;
-    response.send(str);
-});
-
-
-
-app.post("/register", function (request, response) {
-    // process a simple register form
+  app.post("/registerMember", function (req, res) { 
+    qstr = req.body
+    console.log(qstr);
   
-    //Validate: User must not exist already, case sensitive,password certain length with certain characters, email is email
+    
+    var errors = []; //assume no errors at first,
   
-    //Save new user to file name (users_reg_data)
-    username = request.body.username;
-  
-    //Checks to see if username already exists
-    errors = [];
-    //If array stays empty move on
-    if (typeof users_reg_data[username] != 'undefined') {
-      errors.push("Username is Taken");
+    //name contains only letters 
+    if (/^[A-Za-z]+$/.test(req.body.name)) {
     }
-    console.log(errors, users_reg_data);
+    else {
+      errors.push('Invalid character, only use letters for name!')
+    }
+    
+    // length of full name is between 0 and 25 
+    if ((req.body.name.length > 25 && req.body.name.length <0)) {
+      errors.push('Full Name Too Long')
+    }
+    
+    
+    
+    //checks to see if username already exists
+  
+    var reguser = req.body.username.toLowerCase(); 
+    if (typeof users_reg_data[reguser] != 'undefined') { 
+      errors.push('Username taken')
+    }
+    //validating username 
+    //Check letters and numbers only
+    
+    if (/^[0-9a-zA-Z]+$/.test(req.body.username)) {
+    }
+    else {
+      errors.push('Please only use letters and numbers for username')
+    }
+    if ((req.body.username.length < 5 && req.body.username.length > 20)) {
+      errors.push('username must be between 5 and 20 characters')
+    }
+  //validating password 
+    //password is min 6 characters long 
+    if ((req.body.password.length < 5)) {
+      errors.push('Password must be longer than 5 characters')
+    }
+    // check to see if passwords match
+    if (req.body.password !== req.body.passConfirm) { 
+      errors.push('Passwords do not match!')
+    }
+  
+    
+  
+  
+    // if there are no errors, save the json data and send user to the invoice
+  
     if (errors.length == 0) {
-      users_reg_data[username] = {};
-      users_reg_data[username].password = request.body.password;
-      users_reg_data[username].email = request.body.email;
+      console.log('none!');
+      req.query.username = reguser;
+      req.query.name = req.body.name;
+      res.redirect('./playbutton.html?' + querystring.stringify(req.query))
+
+      user_data_JSON = fs.readFileSync(filename, 'utf-8');
+      user_data = JSON.parse(user_data_JSON);
+      fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+    }
+    if (errors.length > 0) {
+      console.log(errors)
+      req.query.name = req.body.name;
+      req.query.username = req.body.username;
+      req.query.password = req.body.password;
+      req.query.confirmpsw = req.body.confirmpsw;
+      req.query.email = req.body.email;
   
-      fs.writeFileSync(user_data_filename, JSON.stringify(users_reg_data));
-  
-      response.redirect("/login");
-    } else {
-      response.redirect("/register");
+      req.query.errors = errors.join(';');
+      res.redirect('./register.html?' + querystring.stringify(req.query)) //trying to add query from registration page and invoice back to register page on reload
     }
   
-  });
+    //add errors to querystring
+  
+  }
+  );
+  
 
 app.use(express.static('./public'));
 app.listen(8080, () => console.log(`listening on port 8080`));
