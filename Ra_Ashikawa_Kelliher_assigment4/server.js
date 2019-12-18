@@ -21,7 +21,7 @@ if (fs.existsSync(filename)) {
 }
 
 
-app.get("/login", function (request, response) {
+app.post("/login", function (request, response) {
     // Give a simple login form
     str = `
     <body>
@@ -91,7 +91,8 @@ app.post("/logUserin", function (request, response) {
         response.redirect('playbutton.html');
         //Redirect them to play button here if they logged in correctly
       } else {
-        response.redirect('server.js');
+          
+        response.redirect('./index.html');
       }
      
     }
@@ -100,14 +101,15 @@ app.post("/logUserin", function (request, response) {
 
 
   app.post("/registerMember", function (req, res) { 
-    qstr = req.body
+    qstr = req.body;
     console.log(qstr);
+   
   
     
     var errors = []; //assume no errors at first,
   
     //name contains only letters 
-    if (/^[A-Za-z]+$/.test(req.body.name)) {
+    if (/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/.test(req.body.name)) {
     }
     else {
       errors.push('Invalid character, only use letters for name!')
@@ -122,7 +124,7 @@ app.post("/logUserin", function (request, response) {
     
     //checks to see if username already exists
   
-    var reguser = req.body.username.toLowerCase(); 
+    var reguser = qstr.username.toLowerCase(); 
     if (typeof users_reg_data[reguser] != 'undefined') { 
       errors.push('Username taken')
     }
@@ -132,7 +134,7 @@ app.post("/logUserin", function (request, response) {
     if (/^[0-9a-zA-Z]+$/.test(req.body.username)) {
     }
     else {
-      errors.push('Please only use letters and numbers for username')
+      errors.push('Please only use letters and numbers for username no spaaces between them!')
     }
     if ((req.body.username.length < 5 && req.body.username.length > 20)) {
       errors.push('username must be between 5 and 20 characters')
@@ -149,18 +151,19 @@ app.post("/logUserin", function (request, response) {
   
     
   
-  
-    // if there are no errors, save the json data and send user to the invoice
-  
-    if (errors.length == 0) {
-      console.log('none!');
-      req.query.username = reguser;
-      req.query.name = req.body.name;
-      res.redirect('./playbutton.html?' + querystring.stringify(req.query))
 
-      user_data_JSON = fs.readFileSync(filename, 'utf-8');
-      user_data = JSON.parse(user_data_JSON);
-      fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+
+    if (errors == 0) {
+        users_reg_data[reguser] = {};
+        users_reg_data[reguser].name = qstr.username;
+        users_reg_data[reguser].password = qstr.password;
+        users_reg_data[reguser].email = qstr.email;
+        console.log(users_reg_data[reguser], "New User Updated");
+
+        fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+
+res.redirect('./playbutton.html?' + querystring.stringify(req.query))
+  
     }
     if (errors.length > 0) {
       console.log(errors)
@@ -171,12 +174,13 @@ app.post("/logUserin", function (request, response) {
       req.query.email = req.body.email;
   
       req.query.errors = errors.join(';');
-      res.redirect('./register.html?' + querystring.stringify(req.query)) //trying to add query from registration page and invoice back to register page on reload
+      res.redirect('./register.html?' + querystring.stringify(req.query)) 
     }
   
     //add errors to querystring
   
   }
+
   );
   
 
