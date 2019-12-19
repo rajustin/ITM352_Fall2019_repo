@@ -21,81 +21,28 @@ if (fs.existsSync(filename)) {
 }
 
 
-app.post("/login", function (request, response) {
-    // Give a simple login form
-    str = `
-    <body>
-    <style>
-html{
-    text-align: center;
-    background-image:url("images/Tetris_Background.jpg"); /*Background Image*/
-    
-}
 
-body{
-    height:50%;
-    display:table; 
-    width:50%;
-}
-
-
-
-#login{
-  
- 
-    vertical-align:middle;
-    background-color: beige;	
-    
-	
-}
-
-
-</style>
-
-<div id= login>
-    <h1>Tetris Login</h1> 
-    <p>To play you must be a member<br> Login or Register as Player 1</p> <!--Login for player 1-->
-    <form name="login for player 1" method="POST">
-    
-        <input type="text" name="username" id="username" size="40" placeholder="Enter Username" required><br />
-        <input type="password" name="password" size="40" placeholder="Enter Password" onkeyup="" required><br />
-        <input type="submit" value="Login" name="login"><br />
-    
-</form>
-       
-    </form>
-    
-    
-    <h2>Register Here!</h2> <!--If not login information user will go to registration page-->  
-    <input type="button" name="newuser" value="New User" 
-        onclick="window.location='register.html' + document.location.search;">
-
-   <h2>Play as a Guest Without Login!</h2> <!--Allows user to go straight to the game without login-->
-    <input type="button" name="Guest" value="Play as Guest"
-    onclick="window.location='playbutton.html' + document.location.search;">
-  </div>
-</body>
-
-    `;
-    response.send(str);
-});
 
 app.post("/logUserin", function (request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
     console.log(request.body);
     //Diagnostic
     the_username = request.body.username;
-    if (typeof users_reg_data[the_username] != 'undefined') {
-      //Asking object if it has matching username, if it doesnt itll be undefined.
+    if (typeof users_reg_data[the_username] != 'undefined') {    //Asking object if it has matching username, if it doesnt itll be undefined.
+    }else{
+        response.redirect('./incorrectUsername.html');
+    }
+  
       if (users_reg_data[the_username].password == request.body.password) {
         response.redirect('playbutton.html');
         //Redirect them to play button here if they logged in correctly
       } else {
-          
-        response.redirect('./index.html');
+      
+        response.redirect('./incorrectPassword.html');
       }
+      
      
-    }
+    
   });
 
 
