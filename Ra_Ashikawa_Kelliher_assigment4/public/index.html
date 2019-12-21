@@ -74,8 +74,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Page</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <SCRIPT LANGUAGE="JavaScript">
-        function GetCookie(name) {
+    <SCRIPT LANGUAGE="JavaScript"> //makes sure the script reads as Javascript
+        //sourced from Eric Yang
+        function GetCookie(name) {//getting cookies to see how many times a user has been to the site
             var arg = name + "=";
             var alen = arg.length;
             var clen = document.cookie.length;
@@ -89,7 +90,7 @@
             }
             return null;
         }
-        function SetCookie(name, value) {
+        function SetCookie(name, value) {//setting the cookie in the browser 
             var argv = SetCookie.arguments;
             var argc = SetCookie.arguments.length;
             var expires = (argc > 2) ? argv[2] : null;
@@ -140,7 +141,7 @@
         <h1>TETRIS</h1>
         <p>To play you must be a member<br> Login or Register</p>
         <!--Login for player-->
-
+        <!--input form for login -->
         <form name="login for player 1" method="POST" action="./logUserin">
             <div class="container">
                 <input type="text" name="username" id="username" size="30" placeholder="Enter Username" required><br /><br>
@@ -149,6 +150,7 @@
             </div>
         </form>
         <script>
+            //searches through the document in sever for the app.post named login
             login.action = "/login" + document.location.search;
         </script>
 

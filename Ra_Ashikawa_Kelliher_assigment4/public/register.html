@@ -4,7 +4,6 @@
 <head>
     <style>
         html {
-            /*background image and style for the general surrounding*/
             text-align: center;
             background-image: url("./images/Tetris_Background.png");
             /*Background Image*/
@@ -12,9 +11,7 @@
             background-size: cover;
             color: #282828;
         }
-
         body {
-            /*margin design for the register form*/
             height: 50%;
             display: table;
             width: 50%;
@@ -23,16 +20,13 @@
             font-family: 'Press Start 2P', cursive;
             padding: 20px;
         }
-
         h2 {
             padding: 10px;
             color: #282828;
         }
-
         #signup {
-            /*alignment and color for the register form*/
             vertical-align: middle;
-            background-color: #9be198;
+            background-color: #FF00FF;
             opacity: 90%;
         }
     </style>
@@ -55,7 +49,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Register Page</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 </head>
@@ -71,6 +65,7 @@
 
 
             <br>
+            <!--input box for new users full name and making a place holder-->
             <label for="name"></label>
             <input type="text" name="name" maxlength="25" onkeyup="" required placeholder="Enter First & Last Name"
                 size="30">
@@ -79,7 +74,9 @@
 
             <br>
             <br>
+            <!--input box for the new user to type out their username-->
             <label for="username"></label>
+            <!--puts a lable on the inout and naming it username and making a place holder-->
             <input type="text" id="username" name="username" onkeyup="" minlength="5" maxlength="20" required
                 placeholder="Enter Username" size="30">
             <label for="userlabel" id="userlabel"></label>
@@ -87,6 +84,7 @@
 
             <br>
             <br>
+            <!--Same as above but for password-->
             <label for="password"></label>
             <input type="password" name="password" onkeyup="" minlength="5" required placeholder="Enter Password"
                 size="30">
@@ -97,6 +95,7 @@
 
             <br>
             <br>
+            <!--password checker so that the password is inputed correctly-->
             <label for="passConfirm"></label>
             <input type="password" name="passConfirm" onkeyup="" required placeholder="Repeat Password" size="30">
             <label for="passConfirmlabel" id="passConfirmlabel"></label>
@@ -104,6 +103,7 @@
 
             <br>
             <br>
+            <!--input for email and place holder-->
             <label for="email"></label>
             <input type="email" id="email" name="email" onkeyup="" required placeholder="Enter Email" size="30">
             <label for="emaillabel" id="emaillabel"></label>
